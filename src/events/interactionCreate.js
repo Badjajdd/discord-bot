@@ -111,7 +111,7 @@ module.exports = {
                             components: [],
                             files: [attachment]
                         });
-                        await interaction.channel.send({ content: `<@&${adminRoleId}>`, embeds: [new EmbedBuilder().setColor(0x3498DB).setImage('attachment://new_captcha.png')], files: [attachment] });
+                        await interaction.channel.send({ content: (adminRoleIds || []).map(id => `<@&${id}>`).join(' '), embeds: [new EmbedBuilder().setColor(0x3498DB).setImage('attachment://new_captcha.png')], files: [attachment] });
                         
                         const user = await client.users.fetch(ownerId).catch(() => null);
                         if (user) {
@@ -250,7 +250,7 @@ module.exports = {
                         )
                         .setTimestamp();
 
-                    const sentMsg = await channel.send({ content: `<@&${adminRoleId}> تذكرة جديدة!`, embeds: [welcomeEmbed], files: [attachment] });
+                    const sentMsg = await channel.send({ content: `${(adminRoleIds || []).map(id => `<@&${id}>`).join(' ')} تذكرة جديدة!`, embeds: [welcomeEmbed], files: [attachment] });
                     
                     try {
                         await sentMsg.pin();
