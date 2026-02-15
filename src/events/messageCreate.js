@@ -22,7 +22,7 @@ module.exports = {
             return;
         }
 
-        const { adminRoleId, logChannelId, statsChannelId, adminChannelId, highAdminRoleIds, roleIcons } = config;
+        const { adminRoleIds, logChannelId, statsChannelId, adminChannelId, highAdminRoleIds, roleIcons } = config;
 
         const dbPath = path.join(__dirname, '..', '..', 'database.json');
         let db;
@@ -141,7 +141,7 @@ module.exports = {
         // --- معالجة الأوامر في السيرفر ---
         const ownerId = Object.keys(db.openTickets).find(id => db.openTickets[id]?.channelId === message.channel.id);
         
-        if (message.content.startsWith('-') && message.member.roles.cache.has(adminRoleId)) {
+        if (message.content.startsWith('-') && (adminRoleIds || []).some(roleId => message.member.roles.cache.has(roleId))) {
             const [cmd, ...args] = message.content.slice(1).trim().split(/ +/);
             const command = cmd.toLowerCase();
             const isHighAdmin = highAdminRoleIds.some(roleId => message.member.roles.cache.has(roleId));
@@ -208,7 +208,7 @@ module.exports = {
         const user = await client.users.fetch(ownerId).catch(() => null);
         const isHighAdmin = highAdminRoleIds.some(roleId => message.member.roles.cache.has(roleId));
 
-        if (!ticket.verified && message.member.roles.cache.has(adminRoleId)) {
+        if (!ticket.verified && (adminRoleIds || []).some(roleId => message.member.roles.cache.has(roleId))) {
             if (message.content.trim() === ticket.captchaCode) {
                 ticket.verified = true;
                 ticket.claimedBy = message.author.id;
@@ -224,7 +224,7 @@ module.exports = {
             }
         }
 
-        if (message.content.startsWith('-') && message.member.roles.cache.has(adminRoleId)) {
+        if (message.content.startsWith('-') && (adminRoleIds || []).some(roleId => message.member.roles.cache.has(roleId))) {
             const [cmd, ...args] = message.content.slice(1).trim().split(/ +/);
             const command = cmd.toLowerCase();
             
