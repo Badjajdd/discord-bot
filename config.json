@@ -2,7 +2,9 @@
   "token": "MTQ2NTMyMTIzMzkzMDM4NzU4Mg.GrGOcM.54s6VxyvJ-hSIEdntIBnpq-LQGy-W1iVODKJL8",
   "clientId": "1465321233930387582",
   "guildId": "1383091595934699640",
-  "adminRoleId": "1454681575806730440",
+  "adminRoleIds": [
+    "1454681575806730440"
+  ],
   "ticketCategoryId": "1454636502247014442",
   "logChannelId": "1452409674577215639",
   "statsChannelId": "1468187523560767518",
