@@ -1,0 +1,71 @@
+{
+  "openTickets": {
+    "1014396459438850078": {
+      "channelId": "1472592770458976360",
+      "ticketId": 6,
+      "department": "تقديم فريق الدعم الفني",
+      "problem": "ببضص",
+      "openedAt": 1771163878729,
+      "claimedBy": "1014396459438850078",
+      "captchaCode": "3605",
+      "verified": true
+    }
+  },
+  "ticketCounter": 6,
+  "ratings": {
+    "1014396459438850078": {
+      "score": 5,
+      "acceptedTickets": 4,
+      "details": {
+        "excellent": 1,
+        "verygood": 0,
+        "good": 0,
+        "neutral": 0,
+        "bad": 0
+      }
+    }
+  },
+  "blocks": {},
+  "categories": {
+    "تقديم فريق الدعم الفني": {
+      "name": "تقديم فريق الدعم الفني",
+      "categoryId": "1467654286937817193",
+      "closed": false
+    },
+    "تقديم فريق المطورين": {
+      "name": "تقديم فريق المطورين",
+      "categoryId": "1467654341262315551",
+      "closed": false
+    },
+    "شكوى على اداري": {
+      "name": "شكوى على اداري",
+      "categoryId": "1467654518861861088",
+      "closed": false
+    },
+    "استلام جائزة": {
+      "name": "استلام جائزة",
+      "categoryId": "1467654656011534638",
+      "closed": false
+    },
+    "تقديم العائلة": {
+      "name": "قديم العائلة",
+      "categoryId": "1467654781374824479",
+      "closed": false
+    },
+    "تقديم الكلان": {
+      "name": "تقديم الكلان",
+      "categoryId": "1467654823489831116",
+      "closed": false
+    },
+    "شراء مركبات": {
+      "name": "شراء مركبات",
+      "categoryId": "1467654868138459156",
+      "closed": false
+    },
+    "الاستفسار العام": {
+      "name": "الاستفسار العام",
+      "categoryId": "1465343022802665472",
+      "closed": false
+    }
+  }
+}
