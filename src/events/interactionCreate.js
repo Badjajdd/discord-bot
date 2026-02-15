@@ -1,5 +1,5 @@
 const { EmbedBuilder, ActionRowBuilder, StringSelectMenuBuilder, AttachmentBuilder, ChannelType, PermissionFlagsBits, ModalBuilder, TextInputBuilder, TextInputStyle } = require('discord.js');
-const { adminRoleId, logChannelId, statsChannelId } = require('../../config.json');
+const { adminRoleIds, logChannelId, statsChannelId } = require('../../config.json');
 const { generateCaptcha } = require('../utils/captcha');
 const fs = require('node:fs');
 const path = require('node:path');
@@ -216,7 +216,10 @@ module.exports = {
                         parent: parentId,
                         permissionOverwrites: [
                             { id: guild.id, deny: [PermissionFlagsBits.ViewChannel] },
-                            { id: adminRoleId, allow: [PermissionFlagsBits.ViewChannel, PermissionFlagsBits.SendMessages, PermissionFlagsBits.ManageChannels] },
+                            ...(adminRoleIds || []).map(roleId => ({
+                                id: roleId,
+                                allow: [PermissionFlagsBits.ViewChannel, PermissionFlagsBits.SendMessages, PermissionFlagsBits.ManageChannels]
+                            })),
                             { id: client.user.id, allow: [PermissionFlagsBits.ViewChannel, PermissionFlagsBits.SendMessages] }
                         ]
                     });
